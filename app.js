@@ -5,12 +5,14 @@ var logger = require('morgan');
 
 var app = express();
 
+// 中间件
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 允许跨域，中间件
 app.use((req, res, next) => {
     res.header({
         'Access-Control-Allow-Credentials': true,
@@ -26,6 +28,7 @@ app.use((req, res, next) => {
     }
 })
 
+// 路由
 app.use('/', require('./routes/index'));
 
 module.exports = app;
