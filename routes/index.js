@@ -1,7 +1,7 @@
 // var express = require('express');
 // var router = express.Router();
-const articleRouter = require('./article.router');
-const articleNumInfoRouter = require('./articleNumInfo.router');
+// const articleRouter = require('./article.router');
+// const articleNumInfoRouter = require('./articleNumInfo.router');
 
 var fs = require('fs');
 var path = require('path');
@@ -13,7 +13,9 @@ function register(app, services) {
       var prefix = path.basename(fname, '.js');
       var realname = path.resolve(__dirname, fname);
       try {
-        require(realname)(app, `/${prefix}`, services);
+        console.log(app, prefix)
+        require(realname)(app, services);
+        //`/${prefix}`,
       } catch (err) {
         console.error(`routes init: require('${prefix}') failed with error:`, err);
       }
@@ -22,3 +24,5 @@ function register(app, services) {
 }
 
 module.exports = register;
+// 
+// module.exports = {articleRouter, articleNumInfoRouter}
