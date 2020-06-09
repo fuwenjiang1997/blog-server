@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router();
-const dbArticle = require('../db/article');
+const dbArticleType = require('../db/articleType');
 
-var article = require('../db/article');
-
-router.get('/article/get_list_article', (req, res) => {
-    dbArticle.findOne({}, {_id:0, __v:0}).then(data => {
+router.get('/article/get_article_type', (req, res) => {
+    dbArticleType.findOne({}, {_id:0, __v:0}).then(data => {
+        console.log(data)
         res.send({
-            code: 0,
+            code: 1000,
             msg: '请求到数据了',
             data
         })

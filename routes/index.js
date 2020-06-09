@@ -13,7 +13,6 @@ function register(app, services) {
       var prefix = path.basename(fname, '.js');
       var realname = path.resolve(__dirname, fname);
       try {
-        console.log(app, prefix)
         require(realname)(app, services);
         //`/${prefix}`,
       } catch (err) {
