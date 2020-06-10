@@ -9,12 +9,13 @@ let article = mongoose.model('article', new Schema({
     tag: {type: String, required: true},
     date: {type: Date, default: Date.now()},
     surface: {type: String, default: '/img/default.jpg'},
-    pv: {type: Number, default: 0}, // 浏览量
-    comment: [{type: Schema.Types.ObjectId, ref: "comment"}] // 关联到comment表
+    comment: [{type: Schema.Types.ObjectId, ref: "comment"}], // 关联到comment表
+    views: {type: Number, default: 0}, // 浏览量
+    likes: {type: Number, default: 0} // 点赞数
 }));
 
 // 添加假数据
-// for(let i = 0; i < 5; i++) {
+// for(let i = 0; i < 50; i++) {
 //     article.create({
 //         type: ["原创", "转载"][(Math.random()*2)|0],
 //         title: `第${i+1}篇文章`,

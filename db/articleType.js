@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 let Schema = mongoose.Schema;
 
-let articleType = mongoose.model('articleType', new Schema({
-    tags: {type: String, required: true},
-    num: {type: Number, default: 0},
+let articleType = mongoose.model('article_tags', new Schema({
+    tag: {type: String, required: true},
+    article_num: {type: Number, default: 0}
 }));
 
 // 添加假数据
@@ -13,7 +13,5 @@ let articleType = mongoose.model('articleType', new Schema({
 //         tag: item
 //     })
 // });
-
-// console.log("创建成功")
 
 module.exports = articleType

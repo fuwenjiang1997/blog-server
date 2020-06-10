@@ -4,6 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 var app = express();
+const articleRouterType = require('./routes/article.router')
+// const dbArticleType = require('./db/articleType');
 
 // 允许跨域，中间件
 app.use((req, res, next) => {
@@ -36,10 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 路由
 
-// express.router.all('*', router.articleRouter, router.articleNumInfoRouter);
-app.use('/', require('./routes/index'));
-// function (req, res, next) {
-
-// }
+app.use('/article', articleRouterType);
 
 module.exports = app;
