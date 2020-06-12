@@ -4,7 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 var app = express();
-const articleRouterType = require('./routes/article.router')
+const articleRouter = require('./routes/article.router')
+const resourseRouter = require('./routes/resourse.router')
 // const dbArticleType = require('./db/articleType');
 
 // 允许跨域，中间件
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 路由
 
-app.use('/article', articleRouterType);
+app.use('/article', articleRouter);
+app.use('/resourse', resourseRouter);
 
 module.exports = app;
